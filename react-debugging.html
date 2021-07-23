@@ -1,0 +1,109 @@
+<!-- ASSESSMENT 3: React Debugging Challenge -->
+
+<!-- This file contains two React components in an HTML file. This React code is broken. Fix the THREE bugs in the code so the user can draw cards and reset the deck. Note: The components are correctly described in this file structure. There is no need to change the architecture of any code. -->
+
+<!-- To see this component, drag the file tab into the browser. -->
+
+<!-- HINT: Check the console in the browser developer tools for errors. The lines numbers may not match up with the line numbers in your text editor. -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Draw a Card</title>
+  </head>
+  <body>
+    <div id="react-container"></div>
+      <script type="text/babel">
+
+
+      // file: src/App.js
+      class App extends React.Component{
+        constructor(props){
+          super(props)
+          this.state = {
+            hand: [],
+            suit: ["❤️", "♦️", "♠️", "♣️"],
+            rank: ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+          }
+        }
+
+        drawCard = () => {
+          const {hand, suit, rank} = this.state
+          let draw = `${rank[Math.floor(Math.random() * rank.length)]} ${suit[Math.floor(Math.random() * suit.length)]}`
+          if(hand.indexOf(draw) === -1){
+            this.setState({hand: [...hand, draw]})
+          } else if(hand.length !== 52){
+            this.drawCard()
+          } else {
+            alert("All cards have been dealt.")
+          }
+        }
+
+        shuffle = () => {
+          this.setState({hand: []})
+        }
+
+        // No need to change anything ABOVE this line ^
+        render(){
+          return(
+            <>
+              <h1>Draw a Card</h1>
+              <Card
+                drawCard={this.drawCard}
+                shuffle={this.shuffle}
+              />
+            </>
+          )
+        }
+      }
+
+      // file: src/components/Card.js
+      class Card extends React.Component{
+        render(){
+          // No need to change the handStyles or cardStyles variables
+          let handStyles = {
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "wrap"
+          }
+          let cardStyles = {
+            border: "1px solid black",
+            width: "70px",
+            height: "95px",
+            margin: "10px",
+            padding: "10px"
+          }
+          return(
+            <>
+              <button onClick={}>
+                Click to Draw a Card
+              </button>
+              <button onClick={shuffle}>
+                Return Cards and Shuffle Deck
+              </button>
+              <div style={handStyles}>
+                {this.props.hand.map((card, index) => {
+                  return (
+                    <div style={cardStyles} key={index}>
+                      {card}
+                    </div>
+                  )
+                })}
+              </div>
+            </>
+          )
+        }
+      }
+
+
+
+      // No need to change anything below this line
+      const domContainer = document.querySelector('#react-container')
+      ReactDOM.render(<App />, domContainer)
+    </script>
+  </body>
+</html>
