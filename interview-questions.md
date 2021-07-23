@@ -14,7 +14,8 @@ Then, research the question to expand on your answer. Even if you feel you have 
                 method is most likely defined in the Array.prototype.string class using 'this'. The logic for this method would need to invoke 'this' to access its own data
                 and output a manipulation thereof.
 
-  Researched answer:
+  Researched answer: In Javascript the 'this' keyword refers to the object it belongs to. As a method, it refers to the owner object. As a function, it refers to
+                      the global. In an event, 'this' refers to the corresponding element that fired the event. In strict mode, 'this' is undefined.
 
 
 
@@ -26,7 +27,11 @@ Then, research the question to expand on your answer. Even if you feel you have 
                 to install a new/updated plugin, or you can use $ yarn add ${plugin name here}. In either scenario, yarn will attempt to install the package and add the result
                 to the yarn.lock file.
 
-  Researched answer:
+  Researched answer: Yarn is a package manager that also fills the role of a project manage. It was developed by Facebook after failing to adequately refactor npm
+                    for their needs. Refactoring npm was slow and difficult, so Facebook decided to just do it themselves. It effectively replaces npm as a package manager.
+                    Yarn specifically checks first that all its dependencies are compatible, then looks into the global cache to see if it needs to download anything to
+                    bring the package up to date with the .json file. If it does, it fetches all the data for the package and places is in a cache, then finally moves
+                    all this information into the appropriate node_modules folder and links it together with the project.
 
 
 
@@ -35,7 +40,9 @@ Then, research the question to expand on your answer. Even if you feel you have 
   Your answer: props is short for properties, at least in my head. They are values and methods that are passed from a parent class to a child class. More specifically,
               props is an object that a child class has access to that contains all the information from the parent class, including all its helper methods and data.
 
-  Researched answer:
+  Researched answer: When React sees an element in JSX representing a user-defined component, it passes JSX attributes to this component as a single object called 'props'.
+                    Props are read-only, meaning they cannot be modified once packaged together. However, they can still be accessed within the child component. All React
+                    components MUST act like pure functions(they do not attempt to change their inputs) with respect to their props.
 
 
 
@@ -46,7 +53,9 @@ Then, research the question to expand on your answer. Even if you feel you have 
                 is extremely versatile, as it contains all default HTML tags but can also be used to invoke a React Component child class as an HTML element, often with complex
                 logic and behavior. JSX is not restrictive, as the developer can enter or exit Javascript code at any point during the return statement of the render method.
 
-  Researched answer:
+  Researched answer: JSX stands for JavaScript XML and is a syntax extension of Javascript. It allows for the writing of HTML in React.js and for the insertion of
+                      fully functional Javascript logic into the HTML. There have been other methods of writing in HTML in Javascript, but JSX is the fastest and most
+                      reusable for templates. JSX also prevents XSS(injection attacks).
 
 
 
@@ -56,7 +65,7 @@ Then, research the question to expand on your answer. Even if you feel you have 
               fire a DOM event that can be fully interpreted by the frontend code. There are instances of DOM events not caused by the user, such as fetch request/responses.
               However, most DOM events are caused by interaction from a user.
 
-  Researched answer:
+  Researched answer: DOM events allow Javascript to register event handlers to specific HTML elements. There are ~100 different types of DOM event.
 
 
 
@@ -65,7 +74,9 @@ Then, research the question to expand on your answer. Even if you feel you have 
   Your answer: I'm not sure, but I think anonymous functions do not belong to any other function or object/class. This kind of highlights the difference between 'method'
                 and 'function', as a method is attached to a particular piece of data but a function is a standalone piece of code.
 
-  Researched answer:
+  Researched answer: I got this totally wrong, I forgot that arrow functions are known as anonymous. Anonymous functions are functions that do not have names. Because
+                    they are not named, they cannot be called anywhere other than where they are defined. Due to this, they are used mostly as callback functions within the
+                    arguments of other function invocations. An anonymous function allows us to pass a specific code block to be executed as part of another method's execution.
 
 
 ## Looking Ahead: Terms for Next Week
