@@ -41,6 +41,7 @@
           } else {
             alert("All cards have been dealt.")
           }
+          console.log(draw)
         }
 
         shuffle = () => {
@@ -55,6 +56,7 @@
               <Card
                 drawCard={this.drawCard}
                 shuffle={this.shuffle}
+                hand={this.state.hand}
               />
             </>
           )
@@ -79,10 +81,10 @@
           }
           return(
             <>
-              <button onClick={}>
+              <button onClick={this.props.drawCard}>
                 Click to Draw a Card
               </button>
-              <button onClick={shuffle}>
+              <button onClick={this.props.shuffle}>
                 Return Cards and Shuffle Deck
               </button>
               <div style={handStyles}>
