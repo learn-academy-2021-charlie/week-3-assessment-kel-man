@@ -107,6 +107,7 @@ describe('arrayAccumulator', () => {
   it('returns an array where each index is the sum of all the previous indices', () => {
     expect(arrayAccumulator(numbersToAdd1)).toEqual([2, 6, 51, 60])
     expect(arrayAccumulator(numbersToAdd2)).toEqual([0, 7, -1, 11])
+    expect(arrayAccumulator([])).toEqual([])
   })
 })
 
@@ -131,11 +132,14 @@ var numbersToAdd3 = []
 // Then I return the output array.
 
 const arrayAccumulator = nums => {
-  let arraySum = [nums[0]]
-  for(let i=1; i<nums.length; i++){
-    arraySum.push(nums[i]+arraySum[i-1])
+  if(nums.length !=0){
+    let arraySum = [nums[0]]
+    for(let i=1; i<nums.length; i++){
+      arraySum.push(nums[i]+arraySum[i-1])
+    }
+    return arraySum
   }
-  return arraySum
+  return []
 }
 
 // I really didnt expect that to work 100% first try, so cool beans. I would love to make it a oneline but that's kind of impossible when using our for loop, or at least not helpful
